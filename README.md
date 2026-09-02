@@ -42,3 +42,7 @@ Aplikasi ini dipakai oleh petugas/admin perpustakaan untuk mengelola data buku, 
 ## Model, View, Controller (menurut pemahaman saya)
 
 Model adalah bagian yang mengurus data, misalnya struktur tabel buku, anggota, dan peminjaman di database. View adalah bagian yang mengurus tampilan yang dilihat pengguna, isinya HTML tanpa logika bisnis yang rumit. Controller adalah penghubung antara keduanya, yaitu menerima permintaan dari pengguna, mengambil atau mengubah data lewat Model, lalu mengirim data itu ke View untuk ditampilkan.
+
+Nama  : Rizki Kurniawan
+NRP   : 3125500043
+Kelas : 2D3ITB
