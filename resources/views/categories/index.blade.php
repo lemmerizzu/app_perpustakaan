@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Daftar Buku')
+@section('title', 'Daftar Kategori')
 
 @section('content')
-    <h1>Daftar Buku</h1>
+    <h1>Daftar Kategori</h1>
 
     <p><a href="{{ route('books.create') }}" class="btn">+ Tambah Buku</a></p>
 
