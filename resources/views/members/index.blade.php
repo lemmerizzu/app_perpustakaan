@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Daftar Anggota</title>
-    <style>
-        body { font-family: sans-serif; margin: 40px; }
-        table { border-collapse: collapse; width: 100%; margin-top: 16px; }
-        th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
-        .success { background: #d1fae5; color: #065f46; padding: 10px 14px; border-radius: 4px; margin-top: 16px; }
-        .btn { display: inline-block; padding: 6px 14px; background: #2563eb; color: #fff; text-decoration: none; border-radius: 4px; }
-        form.inline { display: inline; }
-        .badge-aktif { color: #065f46; background: #d1fae5; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
-        .badge-nonaktif { color: #991b1b; background: #fee2e2; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <h1>Daftar Anggota</h1>
+@extends('layouts.app')
 
-    @if (session('success'))
-        <div class="success">{{ session('success') }}</div>
-    @endif
+@section('title', 'Daftar Buku')
 
-    <p><a href="{{ route('members.create') }}" class="btn">+ Tambah Anggota</a></p>
+@section('content')
+    <h1>Daftar Buku</h1>
+
+    <p><a href="{{ route('books.create') }}" class="btn">+ Tambah Buku</a></p>
+
 
     <table>
         <thead>
@@ -70,6 +55,7 @@
         </tbody>
     </table>
 
-    <p><em>Catatan: data di atas masih data dummy (array statis di Controller), belum dari database. Migration &amp; Model Eloquent baru dibuat di Pertemuan 5.</em></p>
-</body>
-</html>
+
+    <p><em>Catatan: data di atas masih data dummy (array statis di Controller), belum dari database.</em></p>
+@endsection
+
