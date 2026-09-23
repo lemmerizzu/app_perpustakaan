@@ -21,6 +21,17 @@
         .btn { display: inline-block; padding: 6px 14px; background: #2563eb; color: #fff; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; }
         form.inline { display: inline; }
         footer { text-align: center; padding: 20px; color: #6b7280; font-size: 14px; border-top: 1px solid #e5e7eb; margin-top: 40px; }
+        /* Form styles */
+        .form-wrap { max-width: 560px; }
+        .form-group { margin-top: 14px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; color: #374151; }
+        .form-group input,
+        .form-group select,
+        .form-group textarea { width: 100%; padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 14px; color: #1f2937; background: #fff; }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,0.15); }
+        .form-actions { margin-top: 20px; }
     </style>
 </head>
 <body>

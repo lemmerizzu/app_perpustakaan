@@ -3,43 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMemberRequest;
+use App\Models\Member;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
-    private array $members = [
-        [
-            'id' => 1,
-            'nama' => 'Rizki Kurniawan',
-            'nim' => '3125500043',
-            'email' => 'kour.awan@example.com',
-            'nomor_telepon' => '081234567890',
-            'alamat' => 'Jojoran GG 3',
-            'status' => 'aktif',
-        ],
-        [
-            'id' => 2,
-            'nama' => 'Rian Saputri',
-            'nim' => '3125500045',
-            'email' => 'rian.saputri@example.com',
-            'nomor_telepon' => '082345678901',
-            'alamat' => 'Jl. Gebang Wetan No. 5, Surabaya',
-            'status' => 'aktif',
-        ],
-        [
-            'id' => 3,
-            'nama' => 'Rama Listianto',
-            'nim' => '3125500053',
-            'email' => 'listi.rama@example.com',
-            'nomor_telepon' => '083456789012',
-            'alamat' => 'Jl. Keputih Perintis No. 8, Surabaya',
-            'status' => 'nonaktif',
-        ],
-    ];
-
     public function index()
     {
-        $members = $this->members;
+        $members = Member::when(request('search'), fn ($query, $search) => 
+            $query->where('nama', 'like', "%{$search}%")
+        )->paginate(10);
 
         return view('members.index', compact('members'));
     }
@@ -53,29 +26,63 @@ class MemberController extends Controller
     {
         $validated = $request->validated();
 
+        Member::create($validated);
+
         return redirect()->route('members.index')
-            ->with('success', "Anggota \"{$validated['nama']}\" berhasil ditambahkan (data dummy, belum tersimpan ke database).");
+            ->with('success', "Anggota \"{$validated['nama']}\" berhasil ditambahkan.");
     }
 
     public function show(string $id)
     {
-        return "MemberController@show, id: {$id}";
+        $member = Member::findOrFail($id);
+
+        return view('members.show', compact('member'));
     }
 
     public function edit(string $id)
     {
-        return "MemberController@edit, id: {$id}";
+        $member = Member::findOrFail($id);
+
+        return view('members.edit', compact('member'));
     }
 
     public function update(Request $request, string $id)
     {
-        return "MemberController@update, id: {$id}";
+        $member = Member::findOrFail($id);
+
+        $validated = $request->validate([
+            'nama' => 'required|string|max:100',
+            'nim' => 'required|string|max:20|unique:members,nim,' . $member->id,
+            'email' => 'required|email|max:100|unique:members,email,' . $member->id,
+            'nomor_telepon' => 'required|string|max:15',
+            'alamat' => 'required|string',
+            'status' => 'required|in:aktif,nonaktif',
+        ], [
+            'nama.required' => 'Nama anggota wajib diisi.',
+            'nim.required' => 'NIM wajib diisi.',
+            'nim.unique' => 'NIM sudah terdaftar.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'email.unique' => 'Email sudah terdaftar.',
+            'nomor_telepon.required' => 'Nomor telepon wajib diisi.',
+            'alamat.required' => 'Alamat wajib diisi.',
+            'status.required' => 'Status anggota wajib dipilih.',
+            'status.in' => 'Status harus berupa aktif atau nonaktif.',
+        ]);
+
+        $member->update($validated);
+
+        return redirect()->route('members.index')
+            ->with('success', "Anggota \"{$validated['nama']}\" berhasil diperbarui.");
     }
 
     public function destroy(string $id)
     {
+        $member = Member::findOrFail($id);
+        $member->delete();
+
         return redirect()->route('members.index')
-            ->with('success', "Anggota dengan id {$id} berhasil dihapus (data dummy, belum tersimpan ke database).");
+            ->with('success', 'Anggota berhasil dihapus.');
     }
 }
 
