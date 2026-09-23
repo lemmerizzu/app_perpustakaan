@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('title', 'Daftar Kategori')
-
 @section('content')
     <h1>Daftar Kategori</h1>
-
-    <p><a href="{{ route('books.create') }}" class="btn">+ Tambah Buku</a></p>
+    <p><a href="{{ route('categories.create') }}" class="btn">+ Tambah Kategori</a></p>
 
      <table>
         <thead>
@@ -39,6 +37,6 @@
             @endforelse
         </tbody>
     </table>
+    {{ $categories->links() }}
 
-    <p><em>Catatan: data di atas masih data dummy (array statis di Controller), belum dari database.</em></p>
 @endsection
