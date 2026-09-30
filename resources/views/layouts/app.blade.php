@@ -32,6 +32,15 @@
         .form-group select:focus,
         .form-group textarea:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,0.15); }
         .form-actions { margin-top: 20px; }
+        /* Pagination */
+        .pagination-wrap { margin-top: 18px; }
+        .pagination-info { color: #6b7280; font-size: 14px; margin: 0 0 8px; }
+        .pagination { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; }
+        .pagination li a,
+        .pagination li span { display: inline-block; padding: 6px 12px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 14px; text-decoration: none; color: #1f2937; background: #fff; }
+        .pagination li a:hover { background: #eff6ff; border-color: #2563eb; color: #1d4ed8; }
+        .pagination li span.active { background: #2563eb; border-color: #2563eb; color: #fff; font-weight: bold; }
+        .pagination li span.disabled { color: #9ca3af; background: #f9fafb; }
     </style>
 </head>
 <body>
