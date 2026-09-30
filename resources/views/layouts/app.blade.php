@@ -41,6 +41,14 @@
         .pagination li a:hover { background: #eff6ff; border-color: #2563eb; color: #1d4ed8; }
         .pagination li span.active { background: #2563eb; border-color: #2563eb; color: #fff; font-weight: bold; }
         .pagination li span.disabled { color: #9ca3af; background: #f9fafb; }
+        /* Loans */
+        .checkbox-list { border: 1px solid #d1d5db; border-radius: 4px; padding: 10px; max-height: 220px; overflow-y: auto; background: #fff; }
+        .form-group .checkbox-list label { display: flex; align-items: center; gap: 8px; font-weight: 400; margin-bottom: 6px; }
+        .form-group .checkbox-list input { width: auto; }
+        .readonly { background: #f3f4f6; padding: 8px 10px; border-radius: 4px; }
+        .hint { color: #6b7280; font-size: 13px; margin-top: 4px; }
+        table.info th { width: 160px; background: #f3f4f6; }
+
     </style>
 </head>
 <body>

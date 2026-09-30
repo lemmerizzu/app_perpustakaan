@@ -31,10 +31,10 @@ class MemberController extends Controller
         return redirect()->route('members.index')
             ->with('success', "Anggota \"{$validated['nama']}\" berhasil ditambahkan.");
     }
-
+    
     public function show(string $id)
     {
-        $member = Member::findOrFail($id);
+        $member = Member::with(['loans.loanItems.book', 'loans.user'])->findOrFail($id);
 
         return view('members.show', compact('member'));
     }
@@ -85,4 +85,3 @@ class MemberController extends Controller
             ->with('success', 'Anggota berhasil dihapus.');
     }
 }
-
