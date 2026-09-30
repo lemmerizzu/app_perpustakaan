@@ -18,6 +18,9 @@
         .error { color: #b91c1c; font-size: 14px; margin-top: 4px; }
         .badge-aktif { color: #065f46; background: #d1fae5; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
         .badge-nonaktif { color: #991b1b; background: #fee2e2; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        .badge-dipinjam { color: #92400e; background: #fef3c7; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        .badge-dikembalikan { color: #065f46; background: #d1fae5; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+        .badge-terlambat { color: #991b1b; background: #fee2e2; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
         .btn { display: inline-block; padding: 6px 14px; background: #2563eb; color: #fff; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; }
         form.inline { display: inline; }
         footer { text-align: center; padding: 20px; color: #6b7280; font-size: 14px; border-top: 1px solid #e5e7eb; margin-top: 40px; }

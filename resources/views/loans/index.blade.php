@@ -33,7 +33,7 @@
                     </td>
                     <td>{{ $loan['tanggal_pinjam'] }}</td>
                     <td>{{ $loan['tanggal_kembali'] }}</td>
-                    <td>{{ ucfirst($loan['status']) }}</td>
+                    <span class="badge-{{ $loan['status'] }}">{{ ucfirst($loan['status']) }}</span>
                     <td>
                         <a href="{{ route('loans.show', $loan['id']) }}">Detail</a>
                         |
@@ -44,6 +44,14 @@
                             @method('DELETE')
                             <button type="submit">Hapus</button>
                         </form>
+                        @if ($loan['status'] === 'dipinjam')
+                            |
+                            <form class="inline" action="{{ route('loans.kembalikan', $loan['id']) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit">Kembalikan</button>
+                            </form>
+                        @endif
                     </td>
                 </tr>
             @empty
