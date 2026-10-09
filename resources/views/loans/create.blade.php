@@ -23,17 +23,9 @@
         </div>
 
         <div class="form-group">
-            <label for="user_id">Petugas</label>
-            <select name="user_id" id="user_id">
-                <option value="">-- Pilih Petugas --</option>
-                @foreach ($users as $user)
-                    <option value="{{ $user['id'] }}" @selected(old('user_id') == $user['id'])>
-                        {{ $user['name'] }}
-                    </option>
-                @endforeach
-            </select>
-            @error('user_id') <div class="error">{{ $message }}</div> @enderror
-            <div class="hint">Petugas dipilih manual karena login belum ada; otomatis dari user yang login mulai Pertemuan 8.</div>
+            <label>Petugas</label>
+            <div class="readonly">{{ auth()->user()->name }}</div>
+            <div class="hint">Petugas pencatat otomatis dari akun yang login.</div>
         </div>
 
         <div class="form-group">

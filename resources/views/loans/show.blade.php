@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <th>Status</th>
-            <span class="badge-{{ $loan['status'] }}">{{ ucfirst($loan['status']) }}</span>
+            <td><span class="badge-{{ $loan['status'] }}">{{ ucfirst($loan['status']) }}</span></td>
         </tr>
     </table>
 
