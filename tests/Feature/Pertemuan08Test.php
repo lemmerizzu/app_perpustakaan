@@ -52,7 +52,7 @@ class Pertemuan08Test extends TestCase
             'password' => 'password',
         ]);
 
-        $response->assertRedirect(route('books.index'));
+        $response->assertRedirect(route('dashboard'));
         $this->assertAuthenticated();
     }
 
